@@ -8,16 +8,10 @@ require_relative('./db/sql_runner')
 
 
 #Clean up the database by re-running the cinema.sql fle
-sql = File.open('db/cinema.sql', 'rb') { |file| file.read }
-SqlRunner.with_db do |db|
-  begin
-    db.exec(sql)
-  rescue PG::Error
-     #####
-   end
- end
+SqlRunner.reset('db/cinema.sql')
 
-# system 'clear'
+
+system 'clear'
 
 # #show all halls
 # ap Hall.all()
@@ -63,6 +57,21 @@ SqlRunner.with_db do |db|
 
 # ap Film.customers('Jaws 99')
 
-
+puts 'Hall.all() -- lists all halls'
+puts 'Hall.get_hall_id(hall name) -- Gets the hall ID from hall name'
+puts 'Hall.get_max(hall name) -- gets the maximum customers allowed into hall'
+puts 'Hall.get_actual(hall name) -- gets the actual number of customers in the hall'
+puts 'Hall.check_max(hall name) -- checks to see if room is full'
+puts 'Customer.all() -- lists all customers'
+puts 'Customer.films(name) -- returns the films the named customer is going to'
+puts 'Customer.get_funds(name) -- get the named persons funds'
+puts 'Customer.get_customer_id(name) -- Gets the named customers ID'
+puts 'Customer.tickets(name) -- Gets all tickets for a given customer'
+puts 'Film.all() -- lists all the films'
+puts 'Film.get_price(title) -- gets the price of the film for the given title'
+puts 'Film.customers(title) -- gets a list of customers going to the named film, an extension of this could be .count '
+puts 'Film.no_of_tickets(title) -- shows the number of tickets sold for given film'
+puts 'Film.get_film_id(title) -- returns the ID of the named film'
+puts 'Film.buy_ticket(title,name) -- leys yu buy a ticket for the titled film for the named person, will also add person to the hall and deduct price from customers credit'
 binding.pry
 nil

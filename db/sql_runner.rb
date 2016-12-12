@@ -15,10 +15,20 @@ class SqlRunner
   def self.with_db
     db = PG.connect({ dbname: 'ccc_cinema', host: 'localhost' })
     begin
-       yield db
-    ensure
-       db.close
-    end
-  end
+     yield db
+   ensure
+     db.close
+   end
+ end
 
+ def self.reset(fname)
+  sql = File.open(fname, 'rb') { |file| file.read }
+  SqlRunner.with_db do |db|
+    begin
+      db.exec(sql)
+    rescue PG::Error
+       #####
+     end
+   end
+ end
 end

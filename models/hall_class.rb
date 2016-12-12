@@ -9,7 +9,7 @@ class Hall
     @id = options['id'].to_i
     @hall = options['hall']
     @max_customers = options['max_customers'].to_i
-    @actual_customers = options['actual_customer'].to_i
+    @actual_customers = options['actual_customers'].to_i
   end
 
   def save()
@@ -48,17 +48,10 @@ class Hall
 
 
 def self.check_max(hall)
-
   sql = "SELECT * FROM halls WHERE hall = '#{hall}';" 
   max_customers = SqlRunner.run( sql )[0]['max_customers']
   actual_customers = SqlRunner.run( sql )[0]['actual_customers']
-
-  if max_customers == actual_customers
-  return true
-  else
-    return false
-  end
-
+  return max_customers==actual_customers ? true :false
 end
 
 end
