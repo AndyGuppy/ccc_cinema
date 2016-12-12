@@ -88,9 +88,7 @@ class Film
 end
 
 def self.get_film_id(title)
-  sql = "
-  SELECT id FROM films WHERE title = '#{title}';
-  "
+  sql = "SELECT id FROM films WHERE title = '#{title}';"
   return SqlRunner.run( sql )[0]['id']
 
 end
