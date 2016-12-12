@@ -1,0 +1,20 @@
+# ccc_cinema
+Homework -- week 3 -- weekend
+
+'SqlRunner.reset(filename) -- Resets the database'
+'Hall.all() -- lists all halls'
+'Hall.get_hall_id(hall name) -- Gets the hall ID from hall name'
+'Hall.get_max(hall name) -- gets the maximum customers allowed into hall'
+'Hall.get_actual(hall name) -- gets the actual number of customers in the hall'
+'Hall.check_max(hall name) -- checks to see if room is full'
+'Customer.all() -- lists all customers'
+'Customer.films(name) -- returns the films the named customer is going to'
+'Customer.get_funds(name) -- get the named persons funds'
+'Customer.get_customer_id(name) -- Gets the named customers ID'
+'Customer.tickets(name) -- Gets all tickets for a given customer'
+'Film.all() -- lists all the films'
+'Film.get_price(title) -- gets the price of the film for the given title'
+'Film.customers(title) -- gets a list of customers going to the named film, an extension of this could be .count '
+'Film.no_of_tickets(title) -- shows the number of tickets sold for given film'
+'Film.get_film_id(title) -- returns the ID of the named film'
+'Film.buy_ticket(title,name) -- leys yu buy a ticket for the titled film for the named person, will also add person to the hall and deduct price from customers credit'
